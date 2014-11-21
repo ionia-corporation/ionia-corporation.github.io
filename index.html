@@ -61,12 +61,14 @@
 
   var keen_event = {
     environment: "production",
-    error_type: "external_error",
-    error_message: "External error page (QA)",
+    cause: "A freezer was redirected to an external error page (QA)",
+    event: "External Error",
+    page_visited: window.location.href,
     freezer_id: "",
+    is_error: true,
     user: {}
   }
-  keen_client.addEvent('errors', keen_event);
+  keen_client.addEvent('events', keen_event);
 
   Rollbar.error("External error page (QA)", {referrer: document.referrer});
 
